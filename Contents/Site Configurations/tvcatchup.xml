@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site site="http://.*\.tvcatchup\.com"
+	plugin=".*TVCatchupWebPlayer.*\.swf"
 	agent="Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.10) Gecko/20100914 Firefox/3.6.10"
 	identifier="com.sander1.tvcatchup"
-	manualLock="true"
 	initialState="wait-for-frame-load"
 	version="2.0">
 
@@ -33,7 +33,6 @@
 				</not>
 			</condition>
 			<action>
-				<lockPlugin />
 				<goto state="playing" />
 			</action>
 		</event>
@@ -45,7 +44,6 @@
 				<run script="var post_url='http://www.tvcatchup.com/login.html';var post_data={username:'${username}',password:'${password}', login:'1'};jQuery.post(post_url,post_data);" />
 				<pause time="5000" />
 				<visit url="${url}" />
-				<lockPlugin />
 				<goto state="playing" />
 			</action>
 		</event>
