@@ -2,7 +2,7 @@
 <site site="http://.*\.tvcatchup\.com"
 	plugin="(?i).*tvcatchupwebplayer.*\.swf"
 	agent="Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
-	identifier="com.sander1.tvcatchup"
+	identifier="com.plexapp.plugins.tvcatchup"
 	initialState="wait-for-frame-load"
 	version="3.0">
 
