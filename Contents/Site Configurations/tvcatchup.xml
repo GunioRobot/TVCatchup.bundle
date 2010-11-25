@@ -55,7 +55,7 @@
 				<javascript script="login = $('#header a[title=&quot;Login&quot;]').length == 1 ? 1 : 0" matches="1" />
 			</condition>
 			<action>
-				<goto state="end" param="Please check your username and password in the plugin's settings." />
+				<goto state="end" param="Please check your username and password in the plugin's settings" />
 			</action>
 		</event>
 		<event>

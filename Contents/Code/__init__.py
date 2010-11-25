@@ -8,7 +8,7 @@ def Start():
   Plugin.AddPrefixHandler('/video/tvcatchup', MainMenu, 'TVCatchup', 'icon-default.png', 'art-default.jpg')
   Plugin.AddViewGroup('InfoList', viewMode='InfoList', mediaType='items')
   MediaContainer.art = R('art-default.jpg')
-  HTTP.Headers['User-agent'] = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.10) Gecko/20100914 Firefox/3.6.10'
+  HTTP.Headers['User-agent'] = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12'
 
 ####################################################################################################
 
