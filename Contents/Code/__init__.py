@@ -18,6 +18,7 @@ def MainMenu():
     channel_id, channel_name = channel
     dir.Append( WebVideoItem( CHANNEL_URL % (channel_id), title=channel_name, thumb=Function(GetThumb, channel_id=channel_id) ) )
 
+  dir.Append(PrefsItem('Settings', thumb=R('icon-prefs.png')))
   return dir
 
 ####################################################################################################

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site site="http://.*\.tvcatchup\.com"
 	plugin="(?i).*tvcatchupwebplayer.*\.swf"
-	agent="Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.10) Gecko/20100914 Firefox/3.6.10"
+	agent="Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12"
 	identifier="com.sander1.tvcatchup"
 	initialState="wait-for-frame-load"
-	version="2.0">
+	version="3.0">
 
 	<crop x="0" y="0" width="0" height="0" />
 
 	<condition name="need-to-login">
 		<and>
-			<javascript script="check = $('#TVCatchupWebPlayer').length==0 ? 1 : 0" matches="1" />
+			<javascript script="check = $('embed#TVCatchupWebPlayer').length == 0 ? 1 : 0" matches="1" />
 		</and>
 	</condition>
 
@@ -43,6 +43,28 @@
 			<action>
 				<run script="var post_url='http://www.tvcatchup.com/login.html';var post_data={username:'${username}',password:'${password}', login:'1'};jQuery.post(post_url,post_data);" />
 				<pause time="5000" />
+				<visit url="http://www.tvcatchup.com/" />
+				<goto state="check-for-auth-again" />
+			</action>
+		</event>
+	</state>
+
+	<state name="check-for-auth-again">
+		<event>
+			<condition>
+				<javascript script="login = $('#header a[title=&quot;Login&quot;]').length == 1 ? 1 : 0" matches="1" />
+			</condition>
+			<action>
+				<goto state="end" param="Please check your username and password in the plugin's settings." />
+			</action>
+		</event>
+		<event>
+			<condition>
+				<not>
+					<javascript script="login = $('#header a[title=&quot;Login&quot;]').length == 1 ? 1 : 0" matches="1" />
+				</not>
+			</condition>
+			<action>
 				<visit url="${url}" />
 				<goto state="playing" />
 			</action>
